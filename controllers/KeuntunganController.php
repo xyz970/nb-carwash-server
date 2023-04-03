@@ -79,8 +79,8 @@ class KeuntunganController extends BaseController
             // print_r($total['total']);
             $total = $total['total'];
             $for_owner = $total * 0.5;
-            $for_employee = $for_owner * 0.35;
-            $for_cash = $for_employee * 0.15;
+            $for_employee = $for_owner * 0.4;
+            $for_cash = $for_employee * 0.1;
             // echo "INSERT INTO `profits` VALUES ('$id','$date','$total','$sesi','$for_employee','$for_cash','$for_owner'";
             $insert = $this->profit->rawQuery("INSERT INTO `profits`(`id`, `date`, `total`, `daytime`, `for_employee`, `for_cash`, `for_owner`) VALUES ('$id','$date','$total','$sesi','$for_employee','$for_cash','$for_owner')")->get();
             if ($insert) {

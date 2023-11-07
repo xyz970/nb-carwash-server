@@ -51,5 +51,6 @@ class TarifController extends BaseController{
         $timestamp = Carbon::now()->toDateTimeString();
         $harga = $this->post('price');
         $this->tarif->rawQuery("UPDATE `wash_types` SET `price`='$harga',`updated_at`='$timestamp' WHERE id = '$id'")->get();
+        return header("location: ".BASE_URL.'tarif/');
     }
 }

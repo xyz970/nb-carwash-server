@@ -198,6 +198,8 @@
                 },
                 dataType: 'json',
             });
+            var urlUpdate ="<?=BASE_URL?>tarif/update?id=:id" 
+            
             $('#updateForm').submit(function(e) {
                 var url = "<?=BASE_URL?>tarif/update?id=:id"
                 e.preventDefault();
@@ -216,8 +218,10 @@
                         $('#updateModal').modal('hide');
                         // var oTable = $('#tableTarif').dataTable();
                         // oTable.fnDraw(false);
-                        swal("Success", "Tarif harga berhasil diubah", "success");
-                        loadTarif();
+                        swal("Success", "Tarif harga berhasil diubah", "success").then(function(){
+                            window.location.reload()
+                        });
+                        // loadTarif();
                         // $("#btn-save").html('Submit');
                         // $("#btn-save"). attr("disabled", false);
                     },

@@ -16,7 +16,6 @@ class TransaksiAPIController extends ApiController
     {
         header('Content-Type: application/json');
         $headers = getallheaders();
-        echo $headers;
         if (!isset($headers['Authorization'])) {
             $this->errorResponse("Oopss.. Anda harus login terlebih dahulu ", 401);
             exit();

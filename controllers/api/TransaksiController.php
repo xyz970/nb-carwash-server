@@ -16,11 +16,12 @@ class TransaksiAPIController extends ApiController
     {
         header('Content-Type: application/json');
         $headers = getallheaders();
-        if (!isset($headers['authorization'])) {
-            $this->errorResponse("Oopss.. Anda harus login terlebih dahulu ", 401);
+        echo $headers;
+        if (!isset($headers['Authorization'])) {
+            $this->errorResponse($headers, 401);
             exit();
         }
-        list(, $token) = explode(' ', $headers['authorization']);
+        list(, $token) = explode(' ', $headers['Authorization']);
         try {
             JWT::decode($token,  new Key($_ENV['ACCESS_TOKEN_SECRET'], 'HS256'));
             $json = file_get_contents('php://input');
